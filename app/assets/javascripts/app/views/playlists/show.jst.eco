@@ -1,0 +1,4 @@
+<h1><%= @playlist.title %></h1>
+<h2><%= @playlist.description %></h2>
+
+<a class="delete">Delete</a>

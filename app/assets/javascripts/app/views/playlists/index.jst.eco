@@ -1,0 +1,18 @@
+<% if @playlists.length: %>
+  <% for playlist in @playlists: %>
+    <div class="playlist">
+      <a class="show" data-id="<%= playlist.id %>"><%= playlist.title %></a>
+    </div>
+  <% end %>
+<% else: %>
+  <h1>New Playlist</h1>
+  <form>
+    <label>
+      Title: <input type="text" name="title">
+    </label>
+    <label>
+      Description: <input type="text" name="description">
+    </label>
+    <button>Create Playlist</button>
+  </form>
+<% end %>
