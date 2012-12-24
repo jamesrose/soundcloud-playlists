@@ -81,9 +81,12 @@ class App.PlaylistsShow extends Spine.Controller
     @playSong tracks
   
   playSong: (tracks) ->
-    SC.oEmbed "http://api.soundcloud.com/tracks/#{tracks.pop()}", auto_play: true, (track) ->
+    return console.log("none left!") unless tracks.length
+    SC.oEmbed "http://api.soundcloud.com/tracks/#{tracks.shift()}", auto_play: true, (track) =>
       $(@player).html track.html
-      console.log track
+      widget = SC.Widget($('iframe').get(0))
+      widget.bind SC.Widget.Events.FINISH, =>
+        @playSong(tracks)
 
   home: -> @navigate '/'
 

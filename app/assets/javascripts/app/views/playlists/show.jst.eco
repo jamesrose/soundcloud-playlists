@@ -1,8 +1,9 @@
 <div id="playlist">
   <h1 class="title"><%= @playlist.title %></h1>
-  <h2 class="description"><%= @playlist.description %></h2>
+  <a class="play">&#9658;</a>
+  <h2 class="description"><%= @playlist.description %> </h2>
 
-  <a class="play">play</a>
+  
 
   <div id="tracks">
     <% for track in @playlist.tracks().all(): %>
