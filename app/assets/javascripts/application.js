@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require spine-extensions
 //= require soundcloud
+//= require soundcloud.player.api
 //= require app
