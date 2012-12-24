@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   
   # Associations
   has_many :playlists
+  has_many :tracks, through: :playlists
   
   # Validations
   validates :access_token, :soundcloud_id, presence: true

@@ -3,12 +3,9 @@
   %head
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'http://connect.soundcloud.com/sdk.js'
+    = javascript_include_tag 'http://w.soundcloud.com/player/api.js'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %title SoundCloud
-  %body
-    #app= yield
-    :javascript
-      jQuery(function() {
-        new App({el: $("#app")})
-      });
+  %body= yield
+  

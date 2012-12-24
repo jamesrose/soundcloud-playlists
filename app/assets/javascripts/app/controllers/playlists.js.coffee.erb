@@ -5,15 +5,17 @@ Playlist = App.Playlist
 
 class App.Playlists extends Spine.Controller  
   className: 'playlists'
-    
+
   constructor: ->
     super
-    
+
     # The content flashing if this isn't synchronous.
     Playlist.fetch(async: false)
     
+    SC.initialize client_id: '<%= ENV['soundcloud_client_id'] %>'
+
     @main = new App.PlaylistsMain
-    
+
     @routes
       '/playlists/:id': (params) ->
         @main.show.active(params)

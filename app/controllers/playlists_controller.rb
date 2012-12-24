@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
   respond_to :json
   
   def index
-    respond_with @current_user.playlists
+    respond_with @current_user.playlists.to_json(include: [:tracks])
   end
   
   def create

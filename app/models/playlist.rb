@@ -4,7 +4,9 @@ class Playlist < ActiveRecord::Base
   
   # Associations
   belongs_to :user
+  has_many :tracks
   
   # Validations
   validates :description, :title, :user, presence: true
+
 end

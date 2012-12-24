@@ -1,6 +1,9 @@
 SoundCloudApp::Application.routes.draw do
+  
+  resources :tracks
   resources :playlists
   resources :sessions, only: :new
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

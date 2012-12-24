@@ -1,2 +1,9 @@
-- if not current_user
-  = image_tag 'connect.png', id: 'connectButton'
+- if current_user
+  #app= yield
+  :javascript
+    jQuery(function() {
+      new App({el: $("#app")})
+    });
+- else
+  #landing
+    #inner= image_tag 'connect.png', id: 'connectButton'

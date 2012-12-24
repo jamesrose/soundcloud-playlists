@@ -1,18 +1,22 @@
 <% if @playlists.length: %>
+  <h1>SoundCloud Playlists</h1>
   <% for playlist in @playlists: %>
     <div class="playlist">
       <a class="show" data-id="<%= playlist.id %>"><%= playlist.title %></a>
+      <span class="control">
+        <a class="play">play</a>
+      </span>
     </div>
   <% end %>
-<% else: %>
-  <h1>New Playlist</h1>
-  <form>
-    <label>
-      Title: <input type="text" name="title">
-    </label>
-    <label>
-      Description: <input type="text" name="description">
-    </label>
-    <button>Create Playlist</button>
-  </form>
 <% end %>
+
+<h2>Add a playlist&hellip;</h2>
+<form>
+  <label>
+    Title: <input type="text" name="title" required autofocus>
+  </label>
+  <label>
+    Description: <input type="text" name="description" required>
+  </label>
+  <button>Create Playlist</button>
+</form>

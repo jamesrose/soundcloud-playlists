@@ -5,6 +5,5 @@
 $(document).ready ->
   
   $('#connectButton').click ->
-    SC.initialize client_id: '97522a2c00d248614d25b3f6ceca1688', redirect_uri: 'http://localhost:3000/sessions/new'
+    SC.initialize client_id: '<%= ENV['soundcloud_client_id'] %>', redirect_uri: 'http://localhost:3000/sessions/new'
     SC.connect -> location.href = '/'
-        
