@@ -12,6 +12,7 @@ class App.Playlists extends Spine.Controller
     # The content flashes if this isn't synchronous.
     Playlist.fetch(async: false)
     
+    # Initialise the SoundCloud JS SDK for later.
     SC.initialize client_id: '<%= ENV['soundcloud_client_id'] %>'
 
     @main = new App.PlaylistsMain

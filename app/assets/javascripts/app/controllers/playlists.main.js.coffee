@@ -4,6 +4,7 @@ $ = jQuery.sub()
 Playlist = App.Playlist
 Track = App.Track
 
+# Route: /
 class App.PlaylistsIndex extends Spine.Controller
   className: 'index'
 
@@ -34,13 +35,11 @@ class App.PlaylistsIndex extends Spine.Controller
     @playlist = Playlist.fromForm(@form).save()
     @navigate('/playlists', @playlist.id)
 
-  show: (e) ->
-    @navigate('/playlists', $(e.target).data('id'))
-    
-  play: (e) =>
-    @playlist = Playlist.find $(e.target).data('id')
-    @playlist.play(@player)
+  show: (e) -> @navigate('/playlists', $(e.target).data('id'))
 
+  play: (e) => Playlist.find($(e.target).data('id')).play(@player)
+
+# Route: /playlists/:id
 class App.PlaylistsShow extends Spine.Controller
   className: 'show'
 
@@ -59,7 +58,8 @@ class App.PlaylistsShow extends Spine.Controller
   constructor: ->
     super
     @active @change
-      
+    
+    # Re-render view when a track is added or removed.
     Track.bind 'change refresh', => @render()
 
   render: ->

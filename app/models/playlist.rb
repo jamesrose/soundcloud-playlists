@@ -8,5 +8,4 @@ class Playlist < ActiveRecord::Base
   
   # Validations
   validates :description, :title, :user, presence: true
-
 end

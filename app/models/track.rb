@@ -13,7 +13,7 @@ class Track < ActiveRecord::Base
   def set_soundcloud_id_and_title
     client = Soundcloud.new(client_id: ENV['soundcloud_client_id'])
     response = client.get('/resolve', url: uri)
-
+    
     self.soundcloud_id = response.id
     self.soundcloud_title = response.title
   end
