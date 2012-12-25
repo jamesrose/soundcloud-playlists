@@ -10,9 +10,11 @@ class App.PlaylistsIndex extends Spine.Controller
   events:
     'submit form': 'submit'
     'click .show': 'show'
+    'click .play': 'play'
 
   elements:
     'form': 'form'
+    '#player': 'player'
 
   constructor: ->
     super
@@ -34,6 +36,10 @@ class App.PlaylistsIndex extends Spine.Controller
 
   show: (e) ->
     @navigate('/playlists', $(e.target).data('id'))
+    
+  play: (e) =>
+    @playlist = Playlist.find $(e.target).data('id')
+    @playlist.play(@player)
 
 class App.PlaylistsShow extends Spine.Controller
   className: 'show'
@@ -76,18 +82,8 @@ class App.PlaylistsShow extends Spine.Controller
     e.preventDefault()
     Track.find($(e.target).data('id')).destroy()
   
-  play: (e) =>
-    tracks = @playlist.tracks().all().map (track) -> track.soundcloud_id
-    @playSong tracks
+  play: => @playlist.play(@player)
   
-  playSong: (tracks) ->
-    return console.log("none left!") unless tracks.length
-    SC.oEmbed "http://api.soundcloud.com/tracks/#{tracks.shift()}", auto_play: true, (track) =>
-      $(@player).html track.html
-      widget = SC.Widget($('iframe').get(0))
-      widget.bind SC.Widget.Events.FINISH, =>
-        @playSong(tracks)
-
   home: -> @navigate '/'
 
 class App.PlaylistsMain extends Spine.Stack

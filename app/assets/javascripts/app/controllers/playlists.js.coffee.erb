@@ -9,7 +9,7 @@ class App.Playlists extends Spine.Controller
   constructor: ->
     super
 
-    # The content flashing if this isn't synchronous.
+    # The content flashes if this isn't synchronous.
     Playlist.fetch(async: false)
     
     SC.initialize client_id: '<%= ENV['soundcloud_client_id'] %>'

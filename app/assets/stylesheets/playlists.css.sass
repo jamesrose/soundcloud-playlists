@@ -3,67 +3,107 @@ body
   font-weight: 200
   margin: 50px 0
   padding: 0
+  -webkit-font-smoothing: antialiased
+  color: #666
+  background: #f5f5f5 url(/assets/bg.gif) fixed
+
+h1, h2, h3, h4
+  color: #000
+  font-weight: normal
 
 a
   &:hover
     cursor: pointer
 
-#app
-  width: 800px
+#container
+  width: 1020px
   margin: 0 auto
+  background: #fff
+  border-bottom: 1px solid #fff
+  -webkit-box-shadow: 0 0 3px #e1e1e3
+  -moz-box-shadow: 0 0 3px #e1e1e3
+  box-shadow: 0 0 3px #e1e1e3
   
-  h1
-    border-bottom: 5px solid #F60
-    display: inline-block
+  #app
+    padding: 50px
   
-  input[type='text'], input[type='password'], textarea, select
-    font-weight: bold    
-    font-size: 18px
-    border: 1px solid #D9D9D9
-    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-    border-radius: 3px
-    -webkit-font-smoothing: antialiased
-    padding: 2px 4px
-    color: #666
-    -webkit-transition: border .4s ease
-    &:focus
-      color: #F60
-      
-  .playlist
-    cursor: pointer
-    padding: 0 0 10px 0
-    .show
+    h1
       display: inline-block
-      width: 600px 
-      font-size: 1.75em
-    .control
-      display: inline-block 
-      width: 100px 
-      text-align: right
-      font-weight: 700
-      color: #777
-      a
-        font-size: 2em
-        transition: color 0.1s linear
-        -moz-transition: color 0.1s linear
-        -o-transition: color 0.1s linear
-        -webkit-transition: color 0.1s linear
-        &:hover
-          color: #F60
+      margin-top: 0
 
-  #playlist
-    h1.title
-    h2.description
-      color: #999
-      font-weight: normal
-    .delete
-      float: right
-    .home
-      float: left
-    form
-      margin-bottom: 10px
+    input[type='text'], input[type='password'], textarea, select
+      font-weight: bold    
+      font-size: 18px
+      border: 1px solid #D9D9D9
+      -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+      border-radius: 3px
+      -webkit-font-smoothing: antialiased
+      padding: 2px 4px
+      color: #666
+      -webkit-transition: border .4s ease
+      &:focus
+        color: #F60
+    
+    #player
+      margin-top: 20px
+
+    .playlist
+      cursor: pointer
+      padding: 0 0 10px 0
+      .show
+        display: inline-block
+        width: 600px 
+        font-size: 1.75em
+      .control
+        display: inline-block 
+        width: 100px 
+        text-align: right
+        font-weight: 700
+        color: #777
+        a
+          font-size: 2em
+          transition: color 0.1s linear
+          -moz-transition: color 0.1s linear
+          -o-transition: color 0.1s linear
+          -webkit-transition: color 0.1s linear
+          &:hover
+            color: #F60
+
+    #playlist
+      h1.title
+      h2.description
+        color: #999
+        font-weight: normal
+        margin-top: 0
+        font-style: italic
+      .delete
+        float: right
+      .home
+        float: left
+      .play
+        text-align: right
+        font-size: 2em
+        color: #F60
+      #playlist-controls
+        font-style: italic
+        font-size: 0.8em
+        margin-top: 20px
+      form
+        margin: 20px 0
+        padding-bottom: 20px
+        border-bottom: 1px solid #e8e8e8
+        #uri
+          padding: 4px 8px 4px 8px
+          width: 800px
+      #tracks
+        .track
+          line-height: 40px
+          border-bottom: 1px solid #e8e8e9
+          clear: both
+          .control
+            float: right
   
 .stack > *:not(.active)
   display: none

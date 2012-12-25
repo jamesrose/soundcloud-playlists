@@ -1,10 +1,10 @@
 <% if @playlists.length: %>
-  <h1>SoundCloud Playlists</h1>
+  <h1>My Playlists</h1>
   <% for playlist in @playlists: %>
     <div class="playlist">
       <a class="show" data-id="<%= playlist.id %>"><%= playlist.title %></a>
       <span class="control">
-        <a class="play">play</a>
+        <a class="play" data-id="<%= playlist.id %>">play</a>
       </span>
     </div>
   <% end %>
@@ -20,3 +20,5 @@
   </label>
   <button>Create Playlist</button>
 </form>
+
+<div id="player"></div>

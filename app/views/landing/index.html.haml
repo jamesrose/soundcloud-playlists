@@ -1,9 +1,10 @@
-- if current_user
-  #app= yield
-  :javascript
-    jQuery(function() {
-      new App({el: $("#app")})
-    });
-- else
-  #landing
-    #inner= image_tag 'connect.png', id: 'connectButton'
+#container
+  - if current_user
+    #app= yield
+    :javascript
+      jQuery(function() {
+        new App({el: $("#app")})
+      });
+  - else
+    #landing
+      #inner= image_tag 'connect.png', id: 'connectButton'

@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   def self.find_or_create(soundcloud_id, access_token)
     user = where(soundcloud_id: soundcloud_id)
     return user.first if user.any?
-    create(soundcloud_id: soundcloud_id, access_token: access_token)
+    user = create(soundcloud_id: soundcloud_id, access_token: access_token)
+    user.playlists.create(title: 'My Favourites', description: 'My all-time favourites')
   end
   
   # Accessor to SC API

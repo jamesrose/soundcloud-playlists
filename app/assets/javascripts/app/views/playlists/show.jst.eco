@@ -1,32 +1,32 @@
 <div id="playlist">
-  <h1 class="title"><%= @playlist.title %></h1>
-  <a class="play">&#9658;</a>
-  <h2 class="description"><%= @playlist.description %> </h2>
+  <% if @playlist: %>
+    <h1 class="title"><%= @playlist.title %></h1>
+    <a class="play">&#9658;</a>
+    <h2 class="description"><%= @playlist.description %> </h2>
 
-  
-
-  <div id="tracks">
-    <% for track in @playlist.tracks().all(): %>
-      <div class="track">
-        <%- if track.soundcloud_title then track.soundcloud_title else '&hellip;' %>
-        <div class="control">
-          <a class="delete" data-id="<%= track.id %>">delete</a>
+    <div id="tracks">
+      <% for track in @playlist.tracks().all(): %>
+        <div class="track">
+          <%- if track.soundcloud_title then track.soundcloud_title else '&hellip;' %>
+          <div class="control">
+            <a class="delete" data-id="<%= track.id %>">remove</a>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <form>
-    <label>
-      SoundCloud URL: <input type="text" name="uri" id="uri" required autofocus>
-    </label>
-    <button>Add</button>
-  </form>
+    <form>
+      <input type="text" name="uri" id="uri" 
+        placeholder="Enter a SoundCloud URL"
+        required autofocus>
+      <button>Add to playlist</button>
+    </form>
+
+    <div id="player"></div>
   
-  <div id="player"></div>
-  
-  <div id="playlist-controls">
-    <a class="home">Back to playlists</a>
-    <a class="delete">Delete</a>
-  </div>
+    <div id="playlist-controls">
+      <a class="home">Back to playlists</a>
+      <a class="delete">Delete</a>
+    </div>
+  <% end %>
 </div>
