@@ -13,7 +13,7 @@ class App.Playlists extends Spine.Controller
     Playlist.fetch(async: false)
     
     # Initialise the SoundCloud JS SDK for later.
-    SC.initialize client_id: '<%= SOUNDCLOUD[:client_id] %>'
+    SC.initialize client_id: '<%= SOUNDCLOUD_CONFIG[:client_id] %>'
 
     @main = new App.PlaylistsMain
 
