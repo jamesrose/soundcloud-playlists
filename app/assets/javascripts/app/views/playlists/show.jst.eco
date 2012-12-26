@@ -7,7 +7,12 @@
     <div id="tracks">
       <% for track in @playlist.tracks().all(): %>
         <div class="track">
-          <%- if track.soundcloud_title then track.soundcloud_title else '&hellip;' %>
+          <% if track.soundcloud: %>
+            <%- track.soundcloud.title %>
+            <span>by <%- track.soundcloud.user.username %></span>
+          <% else: %>
+            &hellip;
+          <% end %>
           <div class="control">
             <a class="delete" data-id="<%= track.id %>">remove</a>
           </div>

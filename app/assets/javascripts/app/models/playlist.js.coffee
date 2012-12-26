@@ -12,7 +12,7 @@ class App.Playlist extends Spine.Model
   # remove the player.
   playNext: (tracks, player) =>
     return $(player).html('') unless tracks.length
-    SC.oEmbed trackUrl + tracks.shift().soundcloud_id, auto_play: true, (track) =>
+    SC.oEmbed trackUrl + tracks.shift().soundcloud.id, auto_play: true, (track) =>
       $(player).html track.html
       SC.Widget($('iframe').get(0)).bind SC.Widget.Events.FINISH, => 
         @playNext(tracks, player)
