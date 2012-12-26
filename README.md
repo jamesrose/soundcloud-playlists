@@ -10,12 +10,12 @@ The are two parts to this app: the Spine front-end and the Rails backend. You ca
     development:
       client_id: your-client-id
       client_secret: your-client-secret
-      client_callback: your-callback-url
+      client_callback: http://localhost:3000/sessions/new
 
     production:
       client_id: your-client-id
       client_secret: your-client-secret
-      client_callback: your-callback-url
+      client_callback: http://my-production-app.com/sessions/new
   ```
 3. `bundle install && rake db:setup`
 4. `rails s`
