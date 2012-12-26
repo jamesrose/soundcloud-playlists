@@ -18,7 +18,7 @@ class Track < ActiveRecord::Base
     
   # Save serialised response from SC w/ Track.
   def save_soundcloud_response
-    client = Soundcloud.new(client_id: ENV['soundcloud_client_id'])
+    client = Soundcloud.new(client_id: SOUNDCLOUD_CONFIG[:client_id])
     response = client.get('/resolve', url: uri)
     self.soundcloud = response
   end
