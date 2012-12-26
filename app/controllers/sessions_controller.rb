@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     access_token = Soundcloud.new(
       client_id: ENV['soundcloud_client_id'],
       client_secret: ENV['soundcloud_client_secret'],
-      redirect_uri: 'http://localhost:3000/sessions/new'
+      redirect_uri:  ENV['sessions_url']
     ).exchange_token(code: params[:code])
     
     client = Soundcloud.new(
