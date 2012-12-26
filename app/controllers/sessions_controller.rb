@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   # Get access token and find or create a new user.
   def new
     access_token = Soundcloud.new(
-      client_id: ENV['soundcloud_client_id'],
-      client_secret: ENV['soundcloud_client_secret'],
-      redirect_uri:  ENV['soundcloud_callback_url']
+      client_id: SOUNDCLOUD[:client_id],
+      client_secret: SOUNDCLOUD[:client_secret],
+      redirect_uri:  SOUNDCLOUD[:client_callback]
     ).exchange_token(code: params[:code])
     
     client = Soundcloud.new(

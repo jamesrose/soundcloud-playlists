@@ -6,5 +6,5 @@ $(document).ready ->
   
   # Initiate client-side auth flow with SC. 
   $('#connectButton').click ->
-    SC.initialize client_id: '<%= ENV['soundcloud_client_id'] %>', redirect_uri: "<%= ENV['soundcloud_callback_url'] %>"
+    SC.initialize client_id: "<%= SOUNDCLOUD[:client_id] %>", redirect_uri: "<%= SOUNDCLOUD[:client_callback] %>"
     SC.connect -> location.href = '/'
