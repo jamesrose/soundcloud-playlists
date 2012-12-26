@@ -11,6 +11,7 @@ class TracksController < ApplicationController
   def create
     respond_with @playlist.tracks.create(params[:track])
   end
+
   
   def destroy
     respond_with @current_user.tracks.find(params[:id]).destroy
