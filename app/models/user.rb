@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
   
   # Find or create a new user by +soundcloud_id+ and create
   # an initial 'favourites' playlist to get started.
-  def self.find_or_create(soundcloud_id, access_token)
-    user = where(soundcloud_id: soundcloud_id)
+  def self.find_or_create_by(options)
+    user = where(soundcloud_id: options[:soundcloud_id])
     return user.first if user.any?
-    user = create(soundcloud_id: soundcloud_id, access_token: access_token)
+    user = create(options)
     user.playlists.create(title: 'My Favourites', description: 'My all-time favourites')
   end
   

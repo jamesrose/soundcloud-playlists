@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       access_token: access_token.access_token
     )
     
-    user = User.find_or_create(client.get('/me').id, access_token.access_token)
+    user = User.find_or_create_by(soundcloud_id: client.get('/me').id, access_token: access_token.access_token)
     session[:user_id] = user.id
   end
 end
