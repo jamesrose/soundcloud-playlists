@@ -21,3 +21,7 @@ The are two parts to this app: the Spine front-end and the Rails backend. You ca
 4. `rails s`
 5. Open [http://localhost:3000](http://localhost:3000)
 6. Check out `app/assets/javascripts/app` and `app/` to see how everything works.
+
+## Screenshot
+
+![A Playlist](http://i.imgur.com/NKhcc.png)
