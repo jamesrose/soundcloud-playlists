@@ -1,4 +1,4 @@
 return alert "You need to be on SoundCloud." unless window.location.host.match /soundcloud/
 url = encodeURIComponent(window.location.href)
-window.open "https://localhost:3000/#/bookmarklet/#{url}", '_blank', 'width=300,height=600'
+window.open "<%= SOUNDCLOUD_CONFIG[:client_url] %>/#/bookmarklet/#{url}", '_blank', 'width=300,height=600'
 window.focus()
