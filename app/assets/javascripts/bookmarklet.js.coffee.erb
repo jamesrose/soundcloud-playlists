@@ -1,3 +1,4 @@
 return alert "You need to be on SoundCloud." unless window.location.host.match /soundcloud/
-window.open "http://localhost:3000/#/bookmarklet/#{encodeURIComponent(window.location.href)}", '_blank', 'width=300,height=600'
+url = encodeURIComponent(window.location.href)
+window.open "https://localhost:3000/#/bookmarklet/#{url}", '_blank', 'width=300,height=600'
 window.focus()
