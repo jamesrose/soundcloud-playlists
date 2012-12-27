@@ -1,9 +1,11 @@
 SoundCloudApp::Application.routes.draw do
   
+  match '*all' => 'application#cor', constraints: { method:  'OPTIONS' }
+  
   resources :tracks
   resources :playlists
   resources :sessions, only: :new
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

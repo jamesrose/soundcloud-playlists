@@ -22,6 +22,8 @@ class App.Playlists extends Spine.Controller
         @main.show.active(params)
       '/playlists': (params) ->
         @main.index.active(params)
+      '/bookmarklet/:uri': (params) ->
+        @main.bookmarklet.active(params)
       '/': (params) ->
         @main.index.active(params)
 

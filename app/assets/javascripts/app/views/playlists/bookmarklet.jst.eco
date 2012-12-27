@@ -1,0 +1,6 @@
+<h1>Which playlist would you like to add this track to?</h1>
+<% for playlist in @playlists: %>
+  <div class="playlist">
+    <a class="show add" data-id="<%= playlist.id %>"><%= playlist.title %></a>
+  </div>
+<% end %>

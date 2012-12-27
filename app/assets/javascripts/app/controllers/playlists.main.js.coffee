@@ -86,6 +86,35 @@ class App.PlaylistsShow extends Spine.Controller
   
   home: -> @navigate '/'
 
+# Route: /bookmarklet
+class App.PlaylistsBookmarklet extends Spine.Controller
+  className: 'bookmarklet'
+  
+  events:
+    'click .playlist .add': 'addTrack'
+  
+  constructor: ->
+    super
+    @active @change
+    
+    Track.bind 'ajaxSuccess', => window.close()
+  
+  render: ->
+    @html @view('playlists/bookmarklet')(playlists: @playlists, track: @track)
+  
+  change: (params) =>
+    console.log params
+    @playlists = Playlist.all()
+    @track = new Track uri: decodeURIComponent(params.uri)
+    @render()
+  
+  addTrack: (e) =>
+    e.preventDefault()
+    @playlist = Playlist.find($(e.target).data('id'))
+    console.log @playlist
+    @playlist.tracks().create uri: @track.uri
+    @html "Your track has been added."
+
 class App.PlaylistsMain extends Spine.Stack
   className: 'main stack'
 
@@ -96,3 +125,4 @@ class App.PlaylistsMain extends Spine.Stack
   controllers:
     show: App.PlaylistsShow
     index: App.PlaylistsIndex
+    bookmarklet: App.PlaylistsBookmarklet
