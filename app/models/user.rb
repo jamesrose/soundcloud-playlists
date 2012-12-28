@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :access_token, :soundcloud_id
   
   # Associations
-  has_many :playlists
+  has_many :playlists, dependent: :destroy
   has_many :tracks, through: :playlists
   
   # Validations
