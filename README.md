@@ -10,19 +10,17 @@ The are two parts to this app: the Spine front-end and the Rails backend. You ca
     development:
       client_id: your-client-id
       client_secret: your-client-secret
-      client_url: http://localhost:3000/sessions/new
+      client_url: http://localhost:3000 # The base URL of the app. Needs to be HTTPS for bookmarklet to work.
 
     production:
       client_id: your-client-id
       client_secret: your-client-secret
-      client_url: https://my-production-app.com/sessions/new
+      client_url: https://my-production-app.com
   ```
 3. `bundle install && rake db:setup`
 4. `rails s` (`thin start --ssl` for SSL `development` server)
 5. Open [http://localhost:3000](http://localhost:3000)
 6. Check out `app/assets/javascripts/app` and `app/` to see how everything works.
-
-The app needs to run over SSL for the bookmarklet to work on SoundCloud's SSL'd site.
 
 ## Screenshot
 
