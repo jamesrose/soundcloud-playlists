@@ -22,3 +22,7 @@
 </form>
 
 <div id="player"></div>
+
+<p id="bookmarklet">
+  Want to add to your playlists directly from <span>SoundCloud</span> song pages? Drag this bookmarklet to your bookmark bar: <a href="javascript: $.getScript('<%= SC.client_url %>/assets/bookmarklet.js')">Add to playlists</a>
+  

@@ -14,9 +14,10 @@ class App.Playlists extends Spine.Controller
     
     # Initialise the SoundCloud JS SDK for later.
     SC.initialize client_id: '<%= SOUNDCLOUD_CONFIG[:client_id] %>'
-
+    SC.client_url = '<%= SOUNDCLOUD_CONFIG[:client_url] %>'
+    
     @main = new App.PlaylistsMain
-
+    
     @routes
       '/playlists/:id': (params) ->
         @main.show.active(params)
