@@ -10,7 +10,7 @@ The are two parts to this app: the Spine front-end and the Rails backend. You ca
     development:
       client_id: your-client-id
       client_secret: your-client-secret
-      client_url: http://localhost:3000 # The base URL of the app. Needs to be HTTPS for bookmarklet to work.
+      client_url: https://localhost:3000 # The base URL of the app. Should be HTTPS otherwise you'll get insecure-content errors with the bookmarklet.
 
     production:
       client_id: your-client-id

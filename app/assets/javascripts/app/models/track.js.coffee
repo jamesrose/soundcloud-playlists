@@ -5,4 +5,4 @@ class App.Track extends Spine.Model
   @belongsTo 'playlist', 'App.Playlist'
 
   validate: ->
-    "URL must be from SoundCloud" unless /soundcloud/.test @uri
+    "URL must be from SoundCloud" unless /soundcloud\.com/.test @uri
