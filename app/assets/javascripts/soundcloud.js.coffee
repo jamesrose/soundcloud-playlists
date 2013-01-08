@@ -6,5 +6,5 @@ $(document).ready ->
 
   # Initiate client-side auth flow with SC. 
   $('#connectButton').click ->
-    SC.initialize client_id: "<%= SOUNDCLOUD_CONFIG[:client_id] %>", redirect_uri: "<%= SOUNDCLOUD_CONFIG[:client_url] %>/sessions/new"
+    SC.initialize client_id: SC_CONFIG.client_id, redirect_uri: "#{SC_CONFIG.client_url}/sessions/new"
     SC.connect -> location.href = '/'

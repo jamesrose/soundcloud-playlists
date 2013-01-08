@@ -13,12 +13,8 @@ class App.Playlists extends Spine.Controller
     Playlist.fetch(async: false)
     
     # Initialise the SoundCloud JS SDK for later.
-    SC.initialize client_id: '<%= SOUNDCLOUD_CONFIG[:client_id] %>'
-    
-    # Store this because eco templates don't play nicely with ERB and
-    # the asset pipeline.
-    SC.client_url = '<%= SOUNDCLOUD_CONFIG[:client_url] %>'
-    
+    SC.initialize SC_CONFIG
+
     @main = new App.PlaylistsMain
     
     @routes

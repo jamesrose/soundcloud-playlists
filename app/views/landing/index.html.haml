@@ -2,6 +2,7 @@
   - if current_user
     #app= yield
     :javascript
+      window.SC_CONFIG = #{JSON.dump SOUNDCLOUD_CONFIG.except(:client_secret) }
       jQuery(function() {
         new App({el: $("#app")})
       });
