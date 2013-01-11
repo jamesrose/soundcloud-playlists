@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 gem 'haml'
 gem 'spine-rails', git: 'https://github.com/jamesrose/spine-rails.git'
