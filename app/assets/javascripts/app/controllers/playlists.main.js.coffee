@@ -103,7 +103,6 @@ class App.PlaylistsBookmarklet extends Spine.Controller
     @html @view('playlists/bookmarklet')(playlists: @playlists, track: @track)
   
   change: (params) =>
-    console.log params
     @playlists = Playlist.all()
     @track = new Track uri: decodeURIComponent(params.uri)
     @render()
@@ -111,7 +110,6 @@ class App.PlaylistsBookmarklet extends Spine.Controller
   addTrack: (e) =>
     e.preventDefault()
     @playlist = Playlist.find($(e.target).data('id'))
-    console.log @playlist
     @playlist.tracks().create uri: @track.uri
     @html "Your track has been added."
 
